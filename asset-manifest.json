@@ -1,22 +1,22 @@
 {
   "files": {
-    "main.css": "/bravado-frontend/static/css/main.8c8b27cf.chunk.css",
-    "main.js": "/bravado-frontend/static/js/main.10b50d73.chunk.js",
-    "main.js.map": "/bravado-frontend/static/js/main.10b50d73.chunk.js.map",
-    "runtime-main.js": "/bravado-frontend/static/js/runtime-main.a45f178a.js",
-    "runtime-main.js.map": "/bravado-frontend/static/js/runtime-main.a45f178a.js.map",
-    "static/js/2.ca854722.chunk.js": "/bravado-frontend/static/js/2.ca854722.chunk.js",
-    "static/js/2.ca854722.chunk.js.map": "/bravado-frontend/static/js/2.ca854722.chunk.js.map",
-    "static/js/3.71e0214e.chunk.js": "/bravado-frontend/static/js/3.71e0214e.chunk.js",
-    "static/js/3.71e0214e.chunk.js.map": "/bravado-frontend/static/js/3.71e0214e.chunk.js.map",
-    "index.html": "/bravado-frontend/index.html",
-    "static/css/main.8c8b27cf.chunk.css.map": "/bravado-frontend/static/css/main.8c8b27cf.chunk.css.map",
-    "static/js/2.ca854722.chunk.js.LICENSE.txt": "/bravado-frontend/static/js/2.ca854722.chunk.js.LICENSE.txt"
+    "main.css": "/bravado-frontend/search/port/static/css/main.8c8b27cf.chunk.css",
+    "main.js": "/bravado-frontend/search/port/static/js/main.06d55b63.chunk.js",
+    "main.js.map": "/bravado-frontend/search/port/static/js/main.06d55b63.chunk.js.map",
+    "runtime-main.js": "/bravado-frontend/search/port/static/js/runtime-main.457d057d.js",
+    "runtime-main.js.map": "/bravado-frontend/search/port/static/js/runtime-main.457d057d.js.map",
+    "static/js/2.ca854722.chunk.js": "/bravado-frontend/search/port/static/js/2.ca854722.chunk.js",
+    "static/js/2.ca854722.chunk.js.map": "/bravado-frontend/search/port/static/js/2.ca854722.chunk.js.map",
+    "static/js/3.71e0214e.chunk.js": "/bravado-frontend/search/port/static/js/3.71e0214e.chunk.js",
+    "static/js/3.71e0214e.chunk.js.map": "/bravado-frontend/search/port/static/js/3.71e0214e.chunk.js.map",
+    "index.html": "/bravado-frontend/search/port/index.html",
+    "static/css/main.8c8b27cf.chunk.css.map": "/bravado-frontend/search/port/static/css/main.8c8b27cf.chunk.css.map",
+    "static/js/2.ca854722.chunk.js.LICENSE.txt": "/bravado-frontend/search/port/static/js/2.ca854722.chunk.js.LICENSE.txt"
   },
   "entrypoints": [
-    "static/js/runtime-main.a45f178a.js",
+    "static/js/runtime-main.457d057d.js",
     "static/js/2.ca854722.chunk.js",
     "static/css/main.8c8b27cf.chunk.css",
-    "static/js/main.10b50d73.chunk.js"
+    "static/js/main.06d55b63.chunk.js"
   ]
 }
