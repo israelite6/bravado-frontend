@@ -37,6 +37,13 @@ function OpenApp({ ...props }) {
   }, []);
   return (
     <div>
+      <button
+        onClick={() => {
+          window.location = `bravado://search/${search}`;
+        }}
+      >
+        button
+      </button>
       status: {state} <br />
       My search is <b>{search}</b>
     </div>
