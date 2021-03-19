@@ -1,3 +1,4 @@
+/* eslint-disable no-restricted-globals */
 import "./App.css";
 import { BrowserRouter, Route, useParams } from "react-router-dom";
 import { useCallback, useEffect, useState } from "react";
@@ -27,7 +28,10 @@ function OpenApp({ ...props }) {
       let isAndroid = /(android)/i.test(navigator.userAgent);
       if (isAndroid) {
         setState("this is a mobile device");
-        setIsAndroid(isAndroid);
+        let con = confirm("Open this page in bravado?");
+        if (con) {
+          window.location = `bravado://search/${search}`;
+        }
       } else {
         setState("this is a mobile device");
         window.location = `bravado://search/${search}`;
