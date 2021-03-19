@@ -4,7 +4,7 @@
       "name": "bravado-dev",
       "script": "npx",
       "interpreter": "none",
-      "args": "serve -s build -l 3004"
+      "args": "serve -s build -l 3007"
     }
   ]
 }
