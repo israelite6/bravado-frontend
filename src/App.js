@@ -40,14 +40,9 @@ function OpenApp({ ...props }) {
   }, []);
   return (
     <div>
-      <button
-        onClick={() => {
-          window.location = `bravado://search/${search}`;
-        }}
-        id='button'
-      >
+      <a href={`bravado://search/${search}`} id='button'>
         button
-      </button>
+      </a>
       status: {state} <br />
       My search is <b>{search}</b>
     </div>
