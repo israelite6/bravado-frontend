@@ -24,11 +24,15 @@ function OpenApp({ ...props }) {
     ) {
       // true for mobile device
       setState("this is a mobile device");
-      window.location = `http://israelalegbeleye.com/server?search=${search}`;
+      // window.location = `http://israelalegbeleye.com/server?search=${search}`;
+      window.location.replace(
+        `http://israelalegbeleye.com/server?search=${search}`
+      );
     } else {
       // false for not mobile device
       setState("not mobile device");
     }
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
   useEffect(() => {
