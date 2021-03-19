@@ -16,6 +16,15 @@ function OpenApp({ ...props }) {
   const { search } = useParams();
   const [state, setState] = useState("");
 
+  function eventFire(el, etype) {
+    if (el.fireEvent) {
+      el.fireEvent("on" + etype);
+    } else {
+      var evObj = document.createEvent("Events");
+      evObj.initEvent(etype, true, false);
+      el.dispatchEvent(evObj);
+    }
+  }
   const getPlatform = useCallback((event) => {
     if (
       /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(
@@ -35,7 +44,8 @@ function OpenApp({ ...props }) {
   useEffect(() => {
     getPlatform();
     setTimeout(() => {
-      document.getElementById("button").click();
+      // document.getElementById("button").click();
+      eventFire(document.getElementById("button"), "click");
     }, 1000);
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
