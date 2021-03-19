@@ -16,14 +16,23 @@ function OpenApp({ ...props }) {
   const { search } = useParams();
   const [state, setState] = useState("");
 
-  const redirect = useCallback((event) => {
-    window.location = `bravado://search/${search}`;
-
-    // eslint-disable-next-line react-hooks/exhaustive-deps
+  const getPlatform = useCallback((event) => {
+    if (
+      /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(
+        navigator.userAgent
+      )
+    ) {
+      // true for mobile device
+      setState("this is a mobile device");
+      window.location = `bravado://search/${search}`;
+    } else {
+      // false for not mobile device
+      setState("not mobile device");
+    }
   }, []);
 
   useEffect(() => {
-    redirect();
+    getPlatform();
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
   return (
