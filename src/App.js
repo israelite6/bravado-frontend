@@ -2,6 +2,9 @@
 import "./App.css";
 import { BrowserRouter, Route, useParams } from "react-router-dom";
 import { useCallback, useEffect, useState } from "react";
+import Modal from "react-modal";
+
+Modal.setAppElement("#root");
 
 function App() {
   return (
@@ -12,6 +15,17 @@ function App() {
     </div>
   );
 }
+
+const customStyles = {
+  content: {
+    top: "50%",
+    left: "50%",
+    right: "auto",
+    bottom: "auto",
+    marginRight: "-50%",
+    transform: "translate(-50%, -50%)",
+  },
+};
 
 function OpenApp({ ...props }) {
   const { search } = useParams();
@@ -28,10 +42,7 @@ function OpenApp({ ...props }) {
       let isAndroid = /(android)/i.test(navigator.userAgent);
       if (isAndroid) {
         setState("this is a mobile device");
-        let con = confirm("Open this page in bravado?");
-        if (con) {
-          window.location = `bravado://search/${search}`;
-        }
+        setIsAndroid(isAndroid);
       } else {
         setState("this is a mobile device");
         window.location = `bravado://search/${search}`;
@@ -49,13 +60,22 @@ function OpenApp({ ...props }) {
   }, []);
   return (
     <div>
-      {isAndroid && (
+      <Modal
+        isOpen={isAndroid}
+        onAfterOpen={() => {}}
+        onRequestClose={() => {}}
+        style={customStyles}
+        contentLabel='Example Modal'
+      >
+        <h2>Open this page in bravado?</h2>
         <button
-          onPress={() => (window.location = `bravado://search/${search}`)}
+          onClick={() => {
+            window.location = `bravado://search/${search}`;
+          }}
         >
-          Launch
+          Yes
         </button>
-      )}
+      </Modal>
       status: {state} <br />
       My search is <b>{search}</b>
     </div>
