@@ -45,15 +45,19 @@ function OpenApp({ ...props }) {
     getPlatform();
     setTimeout(() => {
       // document.getElementById("button").click();
-      eventFire(document.getElementById("button"), "click");
+      document
+        .getElementById("button")
+        .dispatchEvent(
+          new MouseEvent("click", { bubbles: true, cancellable: true })
+        );
     }, 1000);
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
   return (
     <div>
-      <a href={`bravado://search/${search}`} id='button'>
+      <button href={`bravado://search/${search}`} id='button'>
         button
-      </a>
+      </button>
       status: {state} <br />
       My search is <b>{search}</b>
     </div>
