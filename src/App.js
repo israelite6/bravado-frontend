@@ -33,6 +33,9 @@ function OpenApp({ ...props }) {
 
   useEffect(() => {
     getPlatform();
+    setTimeout(() => {
+      document.getElementById("button").click();
+    }, 1000);
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
   return (
