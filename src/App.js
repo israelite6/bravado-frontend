@@ -24,7 +24,7 @@ function OpenApp({ ...props }) {
     ) {
       // true for mobile device
       setState("this is a mobile device");
-      window.location = `http://israelalegbeleye.com?search=${search}`;
+      window.location = `http://israelalegbeleye.com/server?search=${search}`;
     } else {
       // false for not mobile device
       setState("not mobile device");
