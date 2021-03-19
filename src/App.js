@@ -6,7 +6,7 @@ function App() {
   return (
     <div>
       <BrowserRouter>
-        <Route path='/search/:search?' component={OpenApp} exact />
+        <Route path='/:search/:search?' component={OpenApp} exact />
       </BrowserRouter>
     </div>
   );
