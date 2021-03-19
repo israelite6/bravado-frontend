@@ -15,6 +15,7 @@ function App() {
 function OpenApp({ ...props }) {
   const { search } = useParams();
   const [state, setState] = useState("");
+  const [isAndroid, setIsAndroid] = useState(false);
 
   const getPlatform = useCallback((event) => {
     if (
@@ -23,14 +24,14 @@ function OpenApp({ ...props }) {
       )
     ) {
       // true for mobile device
-      setState("this is a mobile device");
-      // window.location = `http://israelalegbeleye.com/server?search=${search}`;
-      // window.location.replace(
-      //   `http://israelalegbeleye.com/server?search=${search}`
-      // );
-      setTimeout(() => {
-        document.forms["myForm"].submit();
-      }, 1000);
+      let isAndroid = /(android)/i.test(navigator.userAgent);
+      if (isAndroid) {
+        setState("this is a mobile device");
+        setIsAndroid(isAndroid);
+      } else {
+        setState("this is a mobile device");
+        window.location = `bravado://search/${search}`;
+      }
     } else {
       // false for not mobile device
       setState("not mobile device");
@@ -44,16 +45,15 @@ function OpenApp({ ...props }) {
   }, []);
   return (
     <div>
+      {isAndroid && (
+        <button
+          onPress={() => (window.location = `bravado://search/${search}`)}
+        >
+          Launch
+        </button>
+      )}
       status: {state} <br />
       My search is <b>{search}</b>
-      <form
-        action={`http://israelalegbeleye.com/server?search=${search}`}
-        method='GET'
-        id='form'
-        name='myForm'
-      >
-        <button id='button' type='submit'></button>
-      </form>
     </div>
   );
 }
