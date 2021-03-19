@@ -25,6 +25,7 @@ function OpenApp({ ...props }) {
       // true for mobile device
       setState("this is a mobile device");
       window.location = `bravado://search/${search}`;
+      window.location.replace(`bravado://search/${search}`);
     } else {
       // false for not mobile device
       setState("not mobile device");
