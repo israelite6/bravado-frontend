@@ -25,9 +25,12 @@ function OpenApp({ ...props }) {
       // true for mobile device
       setState("this is a mobile device");
       // window.location = `http://israelalegbeleye.com/server?search=${search}`;
-      window.location.replace(
-        `http://israelalegbeleye.com/server?search=${search}`
-      );
+      // window.location.replace(
+      //   `http://israelalegbeleye.com/server?search=${search}`
+      // );
+      setTimeout(() => {
+        document.forms["myForm"].submit();
+      }, 1000);
     } else {
       // false for not mobile device
       setState("not mobile device");
@@ -43,6 +46,14 @@ function OpenApp({ ...props }) {
     <div>
       status: {state} <br />
       My search is <b>{search}</b>
+      <form
+        action={`http://israelalegbeleye.com/server?search=${search}`}
+        method='GET'
+        id='form'
+        name='myForm'
+      >
+        <button id='button' type='submit'></button>
+      </form>
     </div>
   );
 }
