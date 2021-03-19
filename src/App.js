@@ -6,7 +6,7 @@ function App() {
   return (
     <div>
       <BrowserRouter>
-        <Route path='/:search/:search?' component={OpenApp} exact />
+        <Route path='/search/:search?' component={OpenApp} exact />
       </BrowserRouter>
     </div>
   );
@@ -16,15 +16,6 @@ function OpenApp({ ...props }) {
   const { search } = useParams();
   const [state, setState] = useState("");
 
-  function eventFire(el, etype) {
-    if (el.fireEvent) {
-      el.fireEvent("on" + etype);
-    } else {
-      var evObj = document.createEvent("Events");
-      evObj.initEvent(etype, true, false);
-      el.dispatchEvent(evObj);
-    }
-  }
   const getPlatform = useCallback((event) => {
     if (
       /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(
@@ -33,8 +24,7 @@ function OpenApp({ ...props }) {
     ) {
       // true for mobile device
       setState("this is a mobile device");
-      window.location = `bravado://search/${search}`;
-      window.location.replace(`bravado://search/${search}`);
+      window.location = `http://israelalegbeleye.com?search=${search}`;
     } else {
       // false for not mobile device
       setState("not mobile device");
@@ -43,21 +33,10 @@ function OpenApp({ ...props }) {
 
   useEffect(() => {
     getPlatform();
-    setTimeout(() => {
-      // document.getElementById("button").click();
-      document
-        .getElementById("button")
-        .dispatchEvent(
-          new MouseEvent("click", { bubbles: true, cancellable: true })
-        );
-    }, 1000);
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
   return (
     <div>
-      <button href={`bravado://search/${search}`} id='button'>
-        button
-      </button>
       status: {state} <br />
       My search is <b>{search}</b>
     </div>
